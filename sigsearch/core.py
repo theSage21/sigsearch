@@ -97,7 +97,13 @@ class Index:
         found |= self.index.get(fntree.prefix(), set())
         for delete in fntree.deletes():
             found |= self.index.get(delete.prefix(), set())
-        return list(sorted(found, key=lambda x: (x.dist, x.is_original)))
+        results = {}
+        for entry in sorted(found, key=lambda x: (x.dist, x.is_original)):
+            if entry.fn not in results or (
+                entry.fn in results and entry.dist <= results[entry.fn].dist
+            ):
+                results[entry.fn] = entry
+        return list(results.values())
 
 
 if __name__ == "__main__":

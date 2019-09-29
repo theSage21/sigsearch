@@ -30,6 +30,7 @@ ctx = {k: getattr(typing, k) for k in typing.__all__}
 exec(q, ctx)
 # search
 results = list(index.find(ctx["fn"]))
+print("Index  Dist  Fn")
 for index, candidate in enumerate(results):
-    print(f"{index:<5} ", candidate)
+    print(f"{index:<5} ", f"{candidate.dist:<4}", candidate.fn)
 print(("-" * 100)[:100])

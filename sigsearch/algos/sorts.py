@@ -1,30 +1,54 @@
-from typing import Sequence, Union
+from typing import Sequence
 
 
-def bubble_sort(collection: Sequence[int]) -> Sequence[int]:
-    length = len(collection)
-    for i in range(length - 1):
-        swapped = False
-        for j in range(length - 1 - i):
-            if collection[j] > collection[j + 1]:
-                swapped = True
-                collection[j], collection[j + 1] = collection[j + 1], collection[j]
-        if not swapped:
-            break  # Stop iteration if the collection is sorted.
-    return collection
+def selection_sort(arr: Sequence[int]) -> Sequence[int]:
+    """
+    name: Selection Sort
+    link: 'https://en.wikipedia.org/wiki/Selection_sort'
+    bst: Ω(n^2)
+    avg: Ω(n^2)
+    wst: Ω(n^2)
+    """
 
 
-def merge_sort(collection: Sequence[int]) -> Sequence[int]:
-    def merge(left, right):
-        result = []
-        while left and right:
-            result.append((left if left[0] <= right[0] else right).pop(0))
-        return result + left + right
-
-    if len(collection) <= 1:
-        return collection
-    mid = len(collection) // 2
-    return merge(merge_sort(collection[:mid]), merge_sort(collection[mid:]))
+def bubble_sort(arr: Sequence[int]) -> Sequence[int]:
+    """
+    name: Bubble Sort
+    link: 'https://en.wikipedia.org/wiki/Bubble_sort'
+    bst: Ω(n)
+    avg: Θ(n^2)
+    wst: O(n^2)
+    """
 
 
-fns = [bubble_sort, merge_sort]
+def insertion_sort(arr: Sequence[int]) -> Sequence[int]:
+    """
+    name: Insertion Sort
+    link: 'https://en.wikipedia.org/wiki/Insertion_sort'
+    bst: Ω(n)
+    avg: Θ(n^2)
+    wst: O(n^2)
+    """
+
+
+def merge_sort(arr: Sequence[int]) -> Sequence[int]:
+    """
+    name: Merge Sort
+    link: 'https://en.wikipedia.org/wiki/Merge_sort'
+    bst: Ω(n log(n))
+    avg: Θ(n log(n))
+    wst: O(n log(n))
+    """
+
+
+def quick_sort(arr: Sequence[int], lo: int = 0, hi: int = None) -> Sequence[int]:
+    """
+    name: Quick Sort
+    link: 'https://en.wikipedia.org/wiki/Quicksort'
+    bst: Ω(n log(n))
+    avg: Θ(n log(n))
+    wst: O(n^2))
+    """
+
+
+fns = [bubble_sort, merge_sort, selection_sort, insertion_sort, quick_sort]

@@ -1,3 +1,4 @@
-from .sorts import fns
+from . import sorts
+from . import search
 
-all_fns = [*fns]
+all_fns = [*sorts.fns, *search.fns]

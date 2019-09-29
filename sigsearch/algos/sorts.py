@@ -1,7 +1,7 @@
 from typing import Sequence, Union
 
 
-def bubble_sort(collection: Sequence[Union[float, int]]) -> Sequence[Union[float, int]]:
+def bubble_sort(collection: Sequence[int]) -> Sequence[int]:
     length = len(collection)
     for i in range(length - 1):
         swapped = False
@@ -14,7 +14,7 @@ def bubble_sort(collection: Sequence[Union[float, int]]) -> Sequence[Union[float
     return collection
 
 
-def merge_sort(collection: Sequence[Union[float, int]]) -> Sequence[Union[float, int]]:
+def merge_sort(collection: Sequence[int]) -> Sequence[int]:
     def merge(left, right):
         result = []
         while left and right:
